@@ -1,51 +1,51 @@
-pub trait OpaqueUnwrap {
+pub trait DebuglessUnwrap {
 	type Unwrapped;
-	fn opaque_unwrap(self) -> Self::Unwrapped;
+	fn debugless_unwrap(self) -> Self::Unwrapped;
 }
 
-impl<T, E> OpaqueUnwrap for Result<T, E> {
+impl<T, E> DebuglessUnwrap for Result<T, E> {
 	type Unwrapped = T;
-	fn opaque_unwrap(self) -> Self::Unwrapped {
+	fn debugless_unwrap(self) -> Self::Unwrapped {
 		match self {
 			Ok(unwrapped) => unwrapped,
-			Err(_) => panic!("Tried to opaque_unwrap Err value"),
+			Err(_) => panic!("Tried to debugless_unwrap Err value"),
 		}
 	}
 }
 
-impl<T> OpaqueUnwrap for Option<T> {
+impl<T> DebuglessUnwrap for Option<T> {
 	type Unwrapped = T;
-	fn opaque_unwrap(self) -> Self::Unwrapped {
+	fn debugless_unwrap(self) -> Self::Unwrapped {
 		match self {
 			Some(unwrapped) => unwrapped,
-			None => panic!("Tried to opaque_unwrap None value"),
+			None => panic!("Tried to debugless_unwrap None value"),
 		}
 	}
 }
 
-pub trait OpaqueUnwrapErr {
+pub trait DebuglessUnwrapErr {
 	type Unwrapped;
-	fn opaque_unwrap_err(self) -> Self::Unwrapped;
+	fn debugless_unwrap_err(self) -> Self::Unwrapped;
 }
 
-impl<T, E> OpaqueUnwrapErr for Result<T, E> {
+impl<T, E> DebuglessUnwrapErr for Result<T, E> {
 	type Unwrapped = E;
-	fn opaque_unwrap_err(self) -> Self::Unwrapped {
+	fn debugless_unwrap_err(self) -> Self::Unwrapped {
 		match self {
-			Ok(_) => panic!("Tried to opaque_unwrap_err Ok value"),
+			Ok(_) => panic!("Tried to debugless_unwrap_err Ok value"),
 			Err(unwrapped) => unwrapped,
 		}
 	}
 }
 
-pub trait OpaqueUnwrapNone {
-	fn opaque_unwrap_none(self);
+pub trait DebuglessUnwrapNone {
+	fn debugless_unwrap_none(self);
 }
 
-impl<T> OpaqueUnwrapNone for Option<T> {
-	fn opaque_unwrap_none(self) {
+impl<T> DebuglessUnwrapNone for Option<T> {
+	fn debugless_unwrap_none(self) {
 		if self.is_some() {
-			panic!("Tried to opaque_unwrap_err Some value")
+			panic!("Tried to debugless_unwrap_none Some value")
 		}
 	}
 }

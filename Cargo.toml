@@ -1,10 +1,13 @@
 [package]
-name = "opaque-unwrap"
-version = "0.0.0"
+name = "debugless-unwrap"
+version = "0.0.1"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
+description = "Unwrap Result<!Debug, !Debug> and Option<!Debug>"
+license = "MPL-2.0"
+repository = "https://github.com/Tamschi/debugless-unwrap"
+include = [
+	"**/*.rs",
+	"Cargo.toml",
+]
 publish = false
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
