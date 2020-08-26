@@ -10,4 +10,3 @@ include = [
 	"**/*.rs",
 	"Cargo.toml",
 ]
-publish = false
