@@ -190,3 +190,8 @@ impl<T> DebuglessUnwrapNone for Option<T> {
 		}
 	}
 }
+
+#[cfg(doctest)]
+mod readme {
+	doc_comment::doctest!("../README.md");
+}

@@ -6,6 +6,7 @@ This library provides alternatives to the standard `.unwrap`* methods on `Result
 use assert_panic::assert_panic;
 use debugless_unwrap::*;
 
+#[derive(Copy, Clone)]
 struct T;
 
 let some = Some(T);
