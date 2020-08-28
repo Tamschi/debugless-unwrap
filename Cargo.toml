@@ -1,6 +1,6 @@
 [package]
 name = "debugless-unwrap"
-version = "0.0.2"
+version = "0.0.3"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
 description = "Unwrap Result<!Debug, !Debug> and Option<!Debug>"
@@ -14,3 +14,4 @@ include = [
 
 [dev-dependencies]
 assert-panic = "1.0.1"
+doc-comment = "0.3.3"

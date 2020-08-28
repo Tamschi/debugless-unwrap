@@ -1,5 +1,9 @@
 # debugless-unwrap - Changelog
 
+## 0.0.3
+
+- Test `README.md` and fixed the code sample therein.
+
 ## 0.0.2
 
 - Added `#[track_caller]` to traits.
