@@ -1,13 +1,13 @@
 [package]
 name = "debugless-unwrap"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
 description = "Unwrap Result<!Debug, !Debug> and Option<!Debug>"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Tamschi/debugless-unwrap"
-homepage = "https://github.com/Tamschi/debugless-unwrap/tree/v0.0.3"
-documentation = "https://docs.rs/debugless-unwrap/0.0.3"
+homepage = "https://github.com/Tamschi/debugless-unwrap/tree/v0.0.4"
+documentation = "https://docs.rs/debugless-unwrap/0.0.4"
 keywords = ["unwrap", "debug", "no-debug", "option", "result"]
 categories = ["rust-patterns"]
 readme = "README.md"

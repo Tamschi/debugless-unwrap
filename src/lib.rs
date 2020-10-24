@@ -81,7 +81,7 @@
 //! err.debugless_unwrap_err();
 //! ```
 
-#![doc(html_root_url = "https://docs.rs/debugless-unwrap/0.0.3")]
+#![doc(html_root_url = "https://docs.rs/debugless-unwrap/0.0.4")]
 #![no_std]
 #![warn(clippy::pedantic)]
 

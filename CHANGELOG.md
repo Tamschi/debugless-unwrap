@@ -1,6 +1,8 @@
 # debugless-unwrap Changelog
 
-## next
+## 0.0.4
+
+2020-10-24
 
 - no_std support
 - Added meta data.
