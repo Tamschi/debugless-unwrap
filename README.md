@@ -4,7 +4,7 @@
 [![Crates.io](https://img.shields.io/crates/v/debugless-unwrap)](https://crates.io/crates/debugless-unwrap)
 [![Docs.rs](https://docs.rs/debugless-unwrap/badge.svg)](https://docs.rs/crates/debugless-unwrap)
 
-![Rust 1.40.0](https://img.shields.io/static/v1?logo=Rust&label=&message=1.40.0&color=grey)
+![Rust 1.46.0](https://img.shields.io/static/v1?logo=Rust&label=&message=1.46.0&color=grey)
 [![Build Status](https://travis-ci.com/Tamschi/debugless-unwrap.svg?branch=develop)](https://travis-ci.com/Tamschi/debugless-unwrap/branches)
 ![Crates.io - License](https://img.shields.io/crates/l/debugless-unwrap/0.0.3)
 
