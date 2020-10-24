@@ -1,17 +1,35 @@
 [package]
 name = "debugless-unwrap"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
 description = "Unwrap Result<!Debug, !Debug> and Option<!Debug>"
-readme = "README.md"
-license = "MPL-2.0"
+license = "MIT OR Apache-2.0"
 repository = "https://github.com/Tamschi/debugless-unwrap"
+homepage = "https://github.com/Tamschi/debugless-unwrap/tree/v0.0.4"
+documentation = "https://docs.rs/debugless-unwrap/0.0.4"
+keywords = ["unwrap", "debug", "no-debug", "option", "result"]
+categories = ["rust-patterns"]
+readme = "README.md"
 include = [
 	"**/*.rs",
-	"/*.md",
+	"!tests/unincluded_*.rs", # Tests of meta data files not included in the package.
+	"Cargo.toml",
+	"CHANGELOG.md",
+	"CODE_OF_CONDUCT.md",
+	"LICENSE-*",
+	"README.md",
 ]
+
+[badges]
+travis-ci = { repository = "Tamschi/debugless-unwrap", branch = "unstable" }
+is-it-maintained-issue-resolution = { repository = "Tamschi/debugless-unwrap" }
+is-it-maintained-open-issues = { repository = "Tamschi/debugless-unwrap" }
+maintenance = { status = "experimental" }
 
 [dev-dependencies]
 assert-panic = "1.0.1"
+cargo-husky = "1.5.0"
 doc-comment = "0.3.3"
+git_info = "0.1.2"
+version-sync = "0.9.1"
