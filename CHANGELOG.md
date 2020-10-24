@@ -1,5 +1,9 @@
 # debugless-unwrap - Changelog
 
+## next
+
+- no_std support
+
 ## 0.0.3
 
 - Test `README.md` and fixed the code sample therein.

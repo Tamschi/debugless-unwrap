@@ -81,6 +81,8 @@
 //! err.debugless_unwrap_err();
 //! ```
 
+#![no_std]
+
 /// Provides `.debugless_unwrap()` on `Result`.
 ///
 /// # Example
@@ -96,11 +98,7 @@
 ///
 /// ok.debugless_unwrap();
 ///
-/// assert_panic!(
-///     { err.debugless_unwrap(); },
-///     &str,
-///     "Tried to debugless_unwrap Err value",
-/// );
+/// assert_panic!({ err.debugless_unwrap(); });
 /// ```
 pub trait DebuglessUnwrap {
 	type Unwrapped;
@@ -134,11 +132,7 @@ impl<T, E> DebuglessUnwrap for Result<T, E> {
 ///
 /// err.debugless_unwrap_err();
 ///
-/// assert_panic!(
-///     { ok.debugless_unwrap_err(); },
-///     &str,
-///     "Tried to debugless_unwrap_err Ok value",
-/// );
+/// assert_panic!({ ok.debugless_unwrap_err(); });
 /// ```
 pub trait DebuglessUnwrapErr {
 	type Unwrapped;
@@ -172,11 +166,7 @@ impl<T, E> DebuglessUnwrapErr for Result<T, E> {
 ///
 /// none.debugless_unwrap_none();
 ///
-/// assert_panic!(
-///     some.debugless_unwrap_none(),
-///     &str,
-///     "Tried to debugless_unwrap_none Some value",
-/// );
+/// assert_panic!(some.debugless_unwrap_none());
 /// ```
 pub trait DebuglessUnwrapNone {
 	#[track_caller]
