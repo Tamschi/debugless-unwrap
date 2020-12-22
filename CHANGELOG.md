@@ -1,5 +1,7 @@
 # debugless-unwrap Changelog
 
+<!-- markdownlint-disable no-trailing-punctuation -->
+
 ## 0.0.4
 
 2020-10-24

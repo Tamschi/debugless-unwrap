@@ -23,7 +23,6 @@ include = [
 publish = false
 
 [badges]
-travis-ci = { repository = "Tamschi/debugless-unwrap", branch = "develop" }
 is-it-maintained-issue-resolution = { repository = "Tamschi/debugless-unwrap" }
 is-it-maintained-open-issues = { repository = "Tamschi/debugless-unwrap" }
 maintenance = { status = "experimental" }
