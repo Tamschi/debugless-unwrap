@@ -81,7 +81,6 @@
 //! err.debugless_unwrap_err();
 //! ```
 
-#![doc(html_root_url = "https://docs.rs/debugless-unwrap/0.0.4")]
 #![no_std]
 #![warn(clippy::pedantic)]
 
@@ -91,7 +90,7 @@
 ///
 /// ```
 /// use assert_panic::assert_panic;
-/// use debugless_unwrap::DebuglessUnwrap;
+/// use debugless_unwrap::DebuglessUnwrapExt;
 ///
 /// struct T;
 ///
@@ -102,19 +101,20 @@
 ///
 /// assert_panic!({ err.debugless_unwrap(); });
 /// ```
-pub trait DebuglessUnwrap {
+pub trait DebuglessUnwrapExt {
 	type Unwrapped;
 
 	#[track_caller]
 	fn debugless_unwrap(self) -> Self::Unwrapped;
 }
 
-impl<T, E> DebuglessUnwrap for Result<T, E> {
+impl<T, E> DebuglessUnwrapExt for Result<T, E> {
 	type Unwrapped = T;
 	fn debugless_unwrap(self) -> Self::Unwrapped {
-		match self {
-			Ok(unwrapped) => unwrapped,
-			Err(_) => panic!("Tried to debugless_unwrap Err value"),
+		if let Ok(unwrapped) = self {
+			unwrapped
+		} else {
+			panic!("Tried to debugless_unwrap Err value")
 		}
 	}
 }
@@ -125,7 +125,7 @@ impl<T, E> DebuglessUnwrap for Result<T, E> {
 ///
 /// ```
 /// use assert_panic::assert_panic;
-/// use debugless_unwrap::DebuglessUnwrapErr;
+/// use debugless_unwrap::DebuglessUnwrapErrExt;
 ///
 /// struct T;
 ///
@@ -136,14 +136,14 @@ impl<T, E> DebuglessUnwrap for Result<T, E> {
 ///
 /// assert_panic!({ ok.debugless_unwrap_err(); });
 /// ```
-pub trait DebuglessUnwrapErr {
+pub trait DebuglessUnwrapErrExt {
 	type Unwrapped;
 
 	#[track_caller]
 	fn debugless_unwrap_err(self) -> Self::Unwrapped;
 }
 
-impl<T, E> DebuglessUnwrapErr for Result<T, E> {
+impl<T, E> DebuglessUnwrapErrExt for Result<T, E> {
 	type Unwrapped = E;
 	fn debugless_unwrap_err(self) -> Self::Unwrapped {
 		match self {
@@ -159,7 +159,7 @@ impl<T, E> DebuglessUnwrapErr for Result<T, E> {
 ///
 /// ```
 /// use assert_panic::assert_panic;
-/// use debugless_unwrap::DebuglessUnwrapNone;
+/// use debugless_unwrap::DebuglessUnwrapNoneExt;
 ///
 /// struct T;
 ///
@@ -170,20 +170,21 @@ impl<T, E> DebuglessUnwrapErr for Result<T, E> {
 ///
 /// assert_panic!(some.debugless_unwrap_none());
 /// ```
-pub trait DebuglessUnwrapNone {
+pub trait DebuglessUnwrapNoneExt {
 	#[track_caller]
 	fn debugless_unwrap_none(self);
 }
 
-impl<T> DebuglessUnwrapNone for Option<T> {
+impl<T> DebuglessUnwrapNoneExt for Option<T> {
 	fn debugless_unwrap_none(self) {
-		if self.is_some() {
-			panic!("Tried to debugless_unwrap_none Some value")
-		}
+		assert!(self.is_none(), "Tried to debugless_unwrap_none Some value");
 	}
 }
 
-#[cfg(doctest)]
-pub mod readme {
-	doc_comment::doctest!("../README.md");
+pub mod prelude {
+	pub use super::{DebuglessUnwrapErrExt, DebuglessUnwrapExt, DebuglessUnwrapNoneExt};
 }
+
+#[cfg(doctest)]
+#[doc = include_str!("../README.md")]
+pub mod readme {}

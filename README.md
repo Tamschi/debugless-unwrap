@@ -1,23 +1,8 @@
 # debugless-unwrap
 
-[![Lib.rs](https://img.shields.io/badge/Lib.rs-*-84f)](https://lib.rs/crates/debugless-unwrap)
-[![Crates.io](https://img.shields.io/crates/v/debugless-unwrap)](https://crates.io/crates/debugless-unwrap)
-[![Docs.rs](https://docs.rs/debugless-unwrap/badge.svg)](https://docs.rs/crates/debugless-unwrap)
-
-![Rust 1.46.0](https://img.shields.io/static/v1?logo=Rust&label=&message=1.46.0&color=grey)
-[![CI](https://github.com/Tamschi/debugless-unwrap/workflows/CI/badge.svg?branch=develop)](https://github.com/Tamschi/debugless-unwrap/actions?query=workflow%3ACI+branch%3Adevelop)
-![Crates.io - License](https://img.shields.io/crates/l/debugless-unwrap/0.0.4)
-
-[![GitHub](https://img.shields.io/static/v1?logo=GitHub&label=&message=%20&color=grey)](https://github.com/Tamschi/debugless-unwrap)
-[![open issues](https://img.shields.io/github/issues-raw/Tamschi/debugless-unwrap)](https://github.com/Tamschi/debugless-unwrap/issues)
-[![open pull requests](https://img.shields.io/github/issues-pr-raw/Tamschi/debugless-unwrap)](https://github.com/Tamschi/debugless-unwrap/pulls)
-[![crev reviews](https://web.crev.dev/rust-reviews/badge/crev_count/debugless-unwrap.svg)](https://web.crev.dev/rust-reviews/crate/debugless-unwrap/)
-
 This library provides alternatives to the standard `.unwrap`* methods on `Result` and `Option` that don't require `Debug` to be implemented on the unexpected variant.
 
 ## Installation
-
-Please use [cargo-edit](https://crates.io/crates/cargo-edit) to always add the latest version of this library:
 
 ```cmd
 cargo add debugless-unwrap
@@ -27,7 +12,7 @@ cargo add debugless-unwrap
 
 ```rust
 use assert_panic::assert_panic;
-use debugless_unwrap::*;
+use debugless_unwrap::prelude::*;
 
 #[derive(Copy, Clone)]
 struct T;
