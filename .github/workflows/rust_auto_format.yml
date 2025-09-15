@@ -20,13 +20,11 @@ jobs:
         # github.head_ref only exists on pull requests.
         ref: ${{ github.head_ref || github.ref }}
 
-    - uses: actions-rs/toolchain@v1.0.7
+    - uses: dtolnay/rust-toolchain@1.70
       with:
-        toolchain: nightly
-        profile: minimal
         components: rustfmt
     - run: cat CI.toml >> Cargo.toml
-    - run: cargo +nightly fmt --all
+    - run: cargo fmt --all
 
     - uses: Tamschi/git-auto-commit-action@v4.8.0
       with:
