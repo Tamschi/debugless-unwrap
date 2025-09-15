@@ -1,6 +1,6 @@
 [package]
 name = "debugless-unwrap"
-version = "0.0.4"
+version = "1.0.0"
 authors = ["Tamme Schichler <tamme@schichler.de>"]
 rust-version = "1.56"
 edition = "2021"
